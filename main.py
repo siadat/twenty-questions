@@ -12,12 +12,25 @@ from fastapi import FastAPI, Request, Response
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import Optional
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+origins = [
+	"http://hetzner:3000",
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 api_key = os.getenv("DEFAULT_OPENAI_API_KEY")
-app = FastAPI()
 random_number_generator = random.Random()
 
 with open("things.yaml") as f:
@@ -47,8 +60,11 @@ def generate_prompt(*, answer: str, guess: str) -> str:
 
 		The answer for this round is {repr(answer)}. Let's start.
 
+		Player: do you know the answer?
+		Host: Yes.
+
 		Player: {guess}
-		Answerer: 
+		Host: 
 	""")
 
 class Input(BaseModel):
@@ -101,7 +117,7 @@ async def process_data(request: Request, data: Input):
 		}))
 
 	response = JSONResponse(content={
-		"response": response_text,
+		"text": response_text,
 	})
 	response.set_cookie(key="session_id", value=session_id)
 
