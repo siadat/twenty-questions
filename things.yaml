@@ -1,302 +1,258 @@
 answers:
   # generate a list of 1000 good answers for a quiz game of Twenty Questions
-  - acorn
-  - airplane
-  - alligator
-  - anchor
-  - anemone
-  - ant
-  - antelope
-  - apple
-  - apple pie
-  - armadillo
-  - avocado
-  - axolotl
-  - balloon
-  - banana
-  - basketball
-  - bat
-  - bear
-  - bicycle
-  - blender
-  - bluebell
-  - blueberry
-  - bobcat
-  - bonsai
-  - bread
-  - bridge
-  - bumblebee
-  - cactus
-  - camera
-  - caramel
-  - carrot
-  - castle
-  - cat
-  - cauliflower
-  - chameleon
-  - cheetah
-  - chimney
-  - chinchilla
-  - clock
-  - coconut
-  - crocodile
-  - cucumber
-  - daffodil
-  - dandelion
-  - deer
-  - desk
-  - diamond
-  - dinosaur
-  - dog
-  - dolphin
-  - donkey
-  - door
-  - dragon
-  - dragonfly
-  - drum
-  - eagle
-  - earring
-  - earthworm
-  - eel
-  - eggplant
-  - elephant
-  - envelope
-  - eraser
-  - escalator
-  - eucalyptus
-  - falcon
-  - fan
-  - feather
-  - firefighter
-  - firefly
-  - fireplace
-  - firetruck
-  - firework
-  - flamingo
-  - flute
-  - football
-  - forest
-  - fossil
-  - frog
-  - fudge
-  - gazelle
-  - geyser
-  - giraffe
-  - globe
-  - goldfish
-  - goose
-  - gopher
-  - gorilla
-  - grape
-  - grapefruit
-  - grapes
-  - grasshopper
-  - guitar
-  - hamburger
-  - hare
-  - hat
-  - hatchet
-  - hedgehog
-  - helicopter
-  - honey
-  - honeycomb
-  - honeydew
-  - horse
-  - horseshoe
-  - house
-  - hummingbird
-  - hurricane
-  - hyena
-  - ibis
-  - ice cream
-  - ice cube
-  - iceberg
-  - iced tea
-  - icicle
-  - igloo
-  - iguana
-  - insect
-  - iron
-  - island
-  - jack-o-lantern
-  - jackal
-  - jacket
-  - jackrabbit
-  - jaguar
-  - jeans
-  - jelly
-  - jellybean
-  - jellyfish
-  - jigsaw
-  - juice
-  - kaleidoscope
-  - kangaroo
-  - ketchup
-  - kettle
-  - keyboard
-  - keychain
-  - kite
-  - kitten
-  - kiwi
-  - knight
-  - koala
-  - ladder
-  - ladybug
-  - lamp
-  - lawnmower
-  - lemon
-  - lemonade
-  - lighthouse
-  - lightning
-  - lion
-  - lizard
-  - llama
-  - lobster
-  - magnet
-  - mango
-  - maracas
-  - marshmallow
-  - microscope
-  - mirror
-  - monkey
-  - moon
-  - mosquito
-  - motorcycle
-  - mountain
-  - mouse
-  - muffin
-  - mushroom
-  - nachos
-  - nail
-  - napkin
-  - narwhal
-  - necklace
-  - nectarine
-  - needle
-  - nightingale
-  - noodle
-  - notebook
-  - nut
-  - nutcracker
-  - nutella
-  - nutmeg
-  - oboe
-  - ocean
-  - ocelot
-  - octagon
-  - octopus
-  - omelette
-  - onion
-  - orange
-  - orca
-  - ostrich
-  - otter
-  - oyster
-  - pancake
-  - parrot
-  - peacock
-  - peanut
-  - pen
-  - penguin
-  - peony
-  - piano
-  - pigeon
-  - pineapple
-  - pinecone
-  - platypus
-  - porcupine
-  - quarter
-  - queen
-  - quiche
-  - quicksand
-  - quicksilver
-  - quill
-  - quilt
-  - quinoa
-  - quiver
-  - rabbit
-  - raccoon
-  - rainbow
-  - raspberry
-  - rattlesnake
-  - refrigerator
-  - rhino
-  - rhinoceros
-  - robot
-  - rocket
-  - rollercoaster
-  - rooster
-  - sandwich
-  - scissors
-  - seahorse
-  - shark
-  - skyscraper
-  - snail
-  - snake
-  - spider
-  - squirrel
-  - starfish
-  - strawberry
-  - sunflower
-  - tadpole
-  - tambourine
-  - tangerine
-  - telephone
-  - telescope
-  - television
-  - toad
-  - toaster
-  - tornado
-  - toucan
-  - train
-  - trampoline
-  - tree
-  - triangle
-  - trombone
-  - turtle
-  - ukelele
-  - ukulele
-  - umbrella
-  - umpire
-  - underwear
-  - unicorn
-  - upstairs
-  - vacuum
-  - vanilla
-  - vase
-  - velcro
-  - velvet
-  - violin
-  - viper
-  - volcano
-  - volleyball
-  - vulture
-  - waffle
-  - wallet
-  - walrus
-  - waterfall
-  - watermelon
-  - whale
-  - willow
-  - windmill
-  - wombat
-  - x-ray
-  - xeriscape
-  - xerox
-  - xerus
-  - xiphos
-  - xylophone
-  - yacht
-  - yak
-  - yellow
-  - yellowjacket
-  - yo-yo
-  - yogurt
-  - yurt
-  - zamboni
-  - zebra
-  - zipline
-  - zipper
-  - zither
-  - zucchini
-  - zygote
+  - answer: airplane
+  - answer: airport
+  - answer: alligator
+  - answer: anchor
+  - answer: ant
+  - answer: apple
+  - answer: apple pie # two words
+  - answer: artificial intelligence # two words
+  - answer: avocado
+  - answer: balloon
+  - answer: banana
+  - answer: basketball
+  - answer: bat
+  - answer: bea
+  - answer: bear
+  - answer: bicycle
+  - answer: blender
+  - answer: blueberry
+  - answer: bonsai
+  - answer: book
+  - answer: bread
+  - answer: bridge
+  - answer: bumblebee
+  - answer: cactus
+  - answer: camera
+  - answer: candle
+  - answer: caramel
+  - answer: carrot
+  - answer: cashew
+  - answer: castle
+  - answer: cat
+  - answer: cauliflower
+  - answer: cheetah
+  - answer: chimney
+  - answer: clock
+  - answer: coconut
+  - answer: crocodile
+  - answer: cucumber
+  - answer: dandelion
+  - answer: deer
+  - answer: desk
+  - answer: diamond
+  - answer: dinosaur
+  - answer: dog
+  - answer: dolphin
+  - answer: donkey
+  - answer: door
+  - answer: dragon
+  - answer: dragonfly
+  - answer: drum
+  - answer: eagle
+  - answer: earring
+  - answer: earth
+  - answer: earthworm
+  - answer: eggplant
+  - answer: elephant
+  - answer: envelope
+  - answer: eraser
+  - answer: escalator # lift elevator?
+  - answer: eucalyptus
+  - answer: falcon
+  - answer: fan
+  - answer: feather
+  - answer: firefighter
+  - answer: firefly
+  - answer: fireplace
+  - answer: firetruck
+  - answer: firework
+  - answer: flamingo # facts: - they can fly
+  - answer: flute
+  - answer: football
+  - answer: forest
+  - answer: fossil
+  - answer: freezer
+  - answer: frog
+  - answer: gazelle
+  - answer: giraffe
+  - answer: globe
+  - answer: goldfish
+  - answer: goose
+  - answer: gopher
+  - answer: gorilla
+  - answer: grape
+  - answer: grapefruit
+  - answer: grapes
+  - answer: grasshopper
+  - answer: guitar
+  - answer: hamburger
+  - answer: hare
+  - answer: hat
+  - answer: hedgehog
+  - answer: helicopter
+  - answer: honey
+  - answer: honeycomb
+  - answer: honeydew
+  - answer: horse
+  - answer: horseshoe
+  - answer: house
+  - answer: hummingbird
+  - answer: hurricane
+  - answer: ice cream
+  - answer: ice cube
+  - answer: iceberg
+  - answer: iced tea
+  - answer: icicle
+  - answer: igloo
+  - answer: insect
+  - answer: iron
+  - answer: island
+  - answer: jack-o-lantern
+  - answer: jacket
+  - answer: jaguar
+  - answer: jeans
+  - answer: jelly
+  - answer: jellyfish
+  - answer: jigsaw
+  - answer: juice
+  - answer: kangaroo
+  - answer: ketchup
+  - answer: kettle
+  - answer: keyboard
+  - answer: keychain
+  - answer: king
+  - answer: kite
+  - answer: kitten
+  - answer: kiwi
+  - answer: knight
+  - answer: koala
+  - answer: ladder
+  - answer: ladybug
+  - answer: lamp
+  - answer: lawnmower
+  - answer: lemon
+  - answer: lemonade
+  - answer: lighthouse
+  - answer: lightning
+  - answer: lion
+  - answer: lizard
+  - answer: llama
+  - answer: lobster
+  - answer: magnet
+  - answer: mango
+  - answer: marshmallow
+  - answer: microscope
+  - answer: mirror
+  - answer: monkey
+  - answer: moon
+  - answer: mosquito
+  - answer: motorcycle
+  - answer: mountain
+  - answer: mouse
+  - answer: muffin
+  - answer: mushroom
+  - answer: nail
+  - answer: napkin
+  - answer: necklace
+  - answer: nectarine
+  - answer: needle
+  - answer: noodle
+  - answer: notebook
+  - answer: nut
+  - answer: nutcracker
+  - answer: nutella
+  - answer: ocean
+  - answer: octagon
+  - answer: octopus
+  - answer: omelette
+  - answer: onion
+  - answer: orange
+  - answer: ostrich
+  - answer: otter
+  - answer: oyster
+  - answer: pancake
+  - answer: parrot
+  - answer: peacock
+  - answer: peanut
+  - answer: pen
+  - answer: pencil
+  - answer: penguin
+  - answer: peony # hard?
+  - answer: piano
+  - answer: pigeon
+  - answer: pineapple
+  - answer: pinecone
+  - answer: queen
+  - answer: quicksand
+  - answer: quill
+  - answer: rabbit
+  - answer: rainbow
+  - answer: raspberry
+  - answer: rattlesnake
+  - answer: refrigerator # synonym: fridge
+  - answer: rhinoceros # synonym: rhino
+  - answer: robot
+  - answer: rocket
+  - answer: rollercoaster
+  - answer: rooster
+  - answer: sandwich
+  - answer: scissors
+  - answer: seahorse
+  - answer: shark
+  - answer: skyscraper
+  - answer: snail
+  - answer: snake
+  - answer: sofa
+  - answer: spider
+  - answer: squirrel
+  - answer: starfish
+  - answer: strawberry
+  - answer: sunflower
+  - answer: tambourine
+  - answer: tangerine
+  - answer: telephone
+  - answer: telescope
+  - answer: television
+  - answer: toad
+  - answer: toaster
+  - answer: tornado
+  - answer: train
+  - answer: trampoline
+  - answer: trash can
+  - answer: tree
+  - answer: triangle
+  - answer: trombone
+  - answer: turtle
+  - answer: ukelele
+  - answer: umbrella
+  - answer: underwear
+  - answer: unicorn
+  - answer: vacuum
+  - answer: vanilla
+  - answer: vase
+  - answer: velvet
+  - answer: violin
+  - answer: viper
+  - answer: volcano
+  - answer: volleyball
+  - answer: vulture
+  - answer: waffle
+  - answer: wallet
+  - answer: walrus
+  - answer: waterfall
+  - answer: watermelon
+  - answer: whale
+  - answer: windmill
+  - answer: wombat
+  - answer: x-ray
+  - answer: xylophone
+  - answer: yacht
+  - answer: yellow
+  - answer: yo-yo
+  - answer: yogurt
+  - answer: yurt
+  - answer: zebra
+  - answer: zipline
+  - answer: zipper

@@ -11,8 +11,11 @@ from textwrap import dedent
 from fastapi import FastAPI, Request, Response
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-from typing import Optional
 from fastapi.middleware.cors import CORSMiddleware
+
+from typing import Any
+from typing import Dict
+from typing import Optional
 
 app = FastAPI()
 origins = [
@@ -36,35 +39,45 @@ random_number_generator = random.Random()
 with open("things.yaml") as f:
 	things = yaml.safe_load(f.read())
 
-def get_todays_answer() -> str:
-	epoch_days = int(int(time.time()) / 3600 / 24)
+def get_todays_answer() -> Dict[str, Any]:
+	epoch_days = int(int(time.time()) / 3600 / 24) + 849
 	random_number_generator.seed(epoch_days)
 	idx = random_number_generator.randint(0, len(things.get("answers", []))-1)
-	answer = things.get("answers", [])[idx].lower()
-	return answer
+	return things.get("answers", [])[idx]
 
-def generate_prompt(*, answer: str, guess: str) -> str:
+def generate_prompt(*, answer: Dict[str, Any], guess: str) -> str:
 	guess = guess.strip()[:50]
 	guess = guess.replace("\n", " ")
 	guess = guess.replace("\r", " ")
 	guess = guess.lower()
 
+	answer_word = answer["answer"]
+	fact_lines = map(lambda fact: f"\n  * {fact}", answer.get("facts", []))
+	facts = "\n".join(fact_lines)
+	if facts:
+		facts = "- Here are some facts about the Answer:" + facts
+
 	# "it depends"
 	# "not applicable"
+	# "probably not",
+	# - The Host only understands English.
 	return dedent(f"""
-		Let's play a Twenty-Questions quiz game. Here are the rules:
+		Host and Player are playing a Twenty-Questions quiz game.
+		Here are the rules:
+		- The Player asks questions, to guess the Answer.
+		- The Host responds to questions about the Answer.
+		- The Host only responds with "yes", "no", "maybe".
+		- The Host responds with "correct, well done!" if the Player guesses {answer_word}.
+		- The Answer is {answer_word}.
+		{facts}
+		- The Host answers questions about {repr(answer_word)} in general.
+		- The Host doesn't utter the Answer {repr(answer_word)} ever.
 
-		- The Player asks questions, to guess the answer.
-		- The Host doesn't mention the answer until the Player has correctly guessed it.
-		- The Host only responds with "yes", "no", "maybe", "probably not", "related", or "correct, well done!".
-
-		The answer for this round is {repr(answer)}. Let's start.
-
-		Player: do you know the answer?
+		Player: do you know what it is?
 		Host: Yes.
 
 		Player: {guess}
-		Host: 
+		Host:
 	""")
 
 class Input(BaseModel):
@@ -83,6 +96,7 @@ async def process_data(request: Request, data: Input):
 	wanted_answer = get_todays_answer()
 	guess = data.text
 	prompt = generate_prompt(answer=wanted_answer, guess=guess)
+	print(prompt)
 
 	llm_response = openai.Completion.create(
 		model="text-davinci-003",

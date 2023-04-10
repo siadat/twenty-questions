@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, CSSProperties } from 'react';
 import axios from 'axios';
 import './App.css';
 
@@ -34,14 +34,32 @@ function App() {
     }
   };
 
+  const items = messages.map((message, index) => {
+    const s: CSSProperties = {
+      textAlign: message.sender === 'user' ? 'right' : 'left',
+      backgroundColor: message.sender !== "user" && message.text !== "No." ? "#fa0" : "transparent",
+    }
+    return <li key={index} style={s}>
+      <p>{message.text}</p>
+    </li>
+  })
+
   return (
     <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
       <div>
-        {messages.map((message, index) => (
-          <div key={index} style={{ textAlign: message.sender === 'user' ? 'right' : 'left' }}>
-            <p>{message.text}</p>
-          </div>
-        ))}
+        <h1>
+          Twenty Questions
+        </h1>
+        <p>
+          Let's play a game! Here are the rules:
+          <li>I have something in mind.</li>
+          <li>You can ask me 20 questions to guess what I have in mind.</li>
+          <li>I will answer with Yes or No.</li>
+        </p>
+        Start by asking me a question!
+        <ol>
+          {items}
+        </ol>
       </div>
       <div>
         <input
