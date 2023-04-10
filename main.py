@@ -52,15 +52,6 @@ def generate_prompt(*, answer: Dict[str, Any], guess: str) -> str:
 	guess = guess.lower()
 
 	answer_word = answer["answer"]
-	fact_lines = map(lambda fact: f"\n  * {fact}", answer.get("facts", []))
-	facts = "\n".join(fact_lines)
-	if facts:
-		facts = "- Here are some facts about the Answer:" + facts
-
-	# "it depends"
-	# "not applicable"
-	# "probably not",
-	# - The Host only understands English.
 	return dedent(f"""
 		Host and Player are playing a Twenty-Questions quiz game.
 		Here are the rules:
@@ -69,7 +60,6 @@ def generate_prompt(*, answer: Dict[str, Any], guess: str) -> str:
 		- The Host only responds with "yes", "no", "maybe".
 		- The Host responds with "correct, well done!" if the Player guesses {answer_word}.
 		- The Answer is {answer_word}.
-		{facts}
 		- The Host answers questions about {repr(answer_word)} in general.
 		- The Host doesn't utter the Answer {repr(answer_word)} ever.
 
