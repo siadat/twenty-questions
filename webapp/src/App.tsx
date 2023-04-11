@@ -45,21 +45,21 @@ function App() {
   })
 
   return (
-    <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
+    <div className="messages" style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
       <div>
         <h1>
           Twenty Questions
         </h1>
         <p>
-          Let's play a game! Here are the rules:
+          Here are the rules:
           <li>I have something in mind.</li>
           <li>You can ask me 20 questions to guess what I have in mind.</li>
           <li>I will answer with Yes or No.</li>
         </p>
         Start by asking me a question!
-        <ol>
+        <ul>
           {items}
-        </ol>
+        </ul>
       </div>
       <div>
         <input

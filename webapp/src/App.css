@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.messages li {
+  padding: 5px 0;
+}
+
+.messages input {
+  margin: 10px 0;
+}
