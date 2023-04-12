@@ -19,6 +19,7 @@ from typing import Optional
 
 app = FastAPI()
 origins = [
+	"https://twenty-questions.vercel.app",
 	"http://hetzner:3000",
 ]
 app.add_middleware(
