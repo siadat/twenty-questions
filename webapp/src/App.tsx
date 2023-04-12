@@ -3,7 +3,11 @@ import axios from 'axios';
 import confetti from "canvas-confetti"
 import './App.css';
 
-const HOST = "http://hetzner:8000"
+let BACKEND = "https://twenty-questions-api.vercel.app"
+
+if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+  BACKEND = "http://hetzner:8000"
+}
 
 interface Message {
   text: string;
@@ -35,7 +39,7 @@ function App() {
     setInput('');
 
     try {
-      const response = await axios.post(`${HOST}/guess`, request_data);
+      const response = await axios.post(`${BACKEND}/guess`, request_data);
       let message_received = { ...response.data, sender: 'server' };
       setMessages(messages => [...messages, message_received]);
       setErrorMessage("")
