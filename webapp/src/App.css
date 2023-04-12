@@ -1,46 +1,69 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.game-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.description {
+  padding:0 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dock-bottom {
+  background-color:#cccccc85;
+  padding:10px;
+  border-top:1px solid #aaa;
+}
+
+h1 {
+  color:#268de6;
+  text-align:center;
+}
+
+.middle-row {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.messages {
+  padding:0;
+  max-width:800px;
+  margin:auto;
 }
 
 .messages li {
-  padding: 5px 0;
+  padding: 10px 10px;
+  list-style-type: none;
+}
+.input-container {
+  max-width:800px;
+  margin:auto;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom:20px;
 }
 
-.messages input {
-  margin: 10px 0;
+.input-container input {
+  padding:10px;
+  margin: 0 10px 0 0;
+}
+
+.messages .message {
+  background-color:#eee;
+  margin-bottom:3px;
+}
+
+.messages .message.message-well-done {
+  background-color:#aaddaa;
+}
+.messages .message-from-server {
+  background-color:#9dccf29e;
+}
+
+.error {
+  background-color:#eaa;
+  padding:20px;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
 }

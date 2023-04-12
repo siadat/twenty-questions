@@ -62,13 +62,14 @@ def generate_prompt(*, answer: Dict[str, Any], guess: str) -> str:
 		- The Answer is {answer_word}.
 		- The Host answers questions about {repr(answer_word)} in general.
 		- The Host doesn't utter the Answer {repr(answer_word)} ever.
+		- The Host doesn't ask questions.
 
 		Player: do you know what it is?
 		Host: Yes.
 
 		Player: {guess}
 		Host:
-	""")
+	""").strip()
 
 class Input(BaseModel):
 	text: str
@@ -100,7 +101,7 @@ async def process_data(request: Request, data: Input):
 		api_key=api_key,
 	)
 
-	response_text = ""
+	response_text = "..."
 
 	try:
 		response_text = llm_response.choices[0].text
