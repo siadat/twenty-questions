@@ -8,7 +8,7 @@
   ],
   "functions": {
     "*.py": {
-      "runtime": "python@3.10"
+      "runtime": "python@3.9"
     }
   },
   "routes": [
