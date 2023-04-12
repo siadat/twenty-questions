@@ -2,3 +2,4 @@ __pycache__/*
 *.pyc
 openai_key
 webapp/node_modules/*
+.vercel
