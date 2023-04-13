@@ -126,7 +126,7 @@ function App() {
                 placeholder="OpenAI API key"
                 autoFocus={true}
               />
-              <button disabled={!(apikey)} onClick={() => setGameState("playing")}>Start</button>
+              <button disabled={apikey.length < 50 } onClick={() => setGameState("playing")}>Start</button>
           </>
         }
 
@@ -149,8 +149,9 @@ function App() {
         { gameState === 'completed' && <> Completed! </> }
         </div>
         { gameState === 'setup' &&
-          <div className="center">
-            You can create and invalidate your keys in <a target="_blank" href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>
+          <div className="apikey-description center">
+            You need to enter a valid OpenAI API key.
+            You can create and invalidate your keys <a target="_blank" href="https://platform.openai.com/account/api-keys">here</a>.
           </div>
         }
       </div>

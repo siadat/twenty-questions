@@ -63,6 +63,9 @@ button {
 .messages .message-from-server {
   background-color:#9dccf29e;
 }
+.apikey-description {
+  padding-bottom:50px;
+}
 
 .error {
   background-color:#eaa;
