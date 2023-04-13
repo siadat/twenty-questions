@@ -57,7 +57,7 @@ def generate_prompt(*, answer: Dict[str, Any], guess: str) -> str:
 		Here are the rules:
 		- The Player asks questions, to guess the Answer.
 		- The Host responds to questions about the Answer.
-		- The Host only responds with "yes", "no", "maybe".
+		- The Host only responds with "yes", "no", "maybe", "correct, well done!", or gives a clue.
 		- The Host responds with "correct, well done!" if the Player guesses {answer_word}.
 		- The Answer is {answer_word}.
 		- The Host answers questions about {repr(answer_word)} in general.

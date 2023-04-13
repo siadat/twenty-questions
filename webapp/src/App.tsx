@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import confetti from "canvas-confetti"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import './App.css';
 
 let BACKEND = "https://twenty-questions-api.vercel.app"
@@ -16,7 +19,6 @@ interface Message {
 
 type GameState = 'setup' | 'playing' | 'completed';
 
-
 function App() {
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [messages, setMessages] = useState<Message[]>([]);
@@ -30,7 +32,6 @@ function App() {
       lastMessageRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages]);
-
 
   const sendMessage = async () => {
     if (input.trim() === '') return;
@@ -61,9 +62,16 @@ function App() {
     }
   };
 
+  const isAPIKeyValid = () => {
+    return apikey.length > 50
+  }
+
   const saveAPIKey = () => {
-    // TODO: save in cookie?
+    if(!isAPIKeyValid()) {
+      return
+    }
     setGameState("playing")
+    setMessages(messages => [...messages, {sender: 'server', text: "Ask questions to try and guess the Answer."}])
   }
 
   const handleKeyPressMessage = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -103,9 +111,10 @@ function App() {
   return <>
     { errorContainer }
     <div className="game-container">
-      <div className="description">
+      <div className="header">
         <h1>
           Twenty Questions
+          <div className="links"><a target="_blank" rel="noreferrer" href="https://github.com/siadat/twenty-questions"><FontAwesomeIcon icon={faGithub} /></a></div>
         </h1>
       </div>
       <div className="middle-row">
@@ -124,10 +133,10 @@ function App() {
                 value={apikey}
                 onChange={(e) => setAPIKey(e.target.value)}
                 onKeyPress={handleKeyPressAPIKey}
-                placeholder="OpenAI API key"
+                placeholder="Paste your OpenAI API key here"
                 autoFocus={true}
               />
-              <button disabled={apikey.length < 50 } onClick={() => setGameState("playing")}>Start</button>
+              <button disabled={!isAPIKeyValid()} onClick={saveAPIKey}>Start</button>
           </>
         }
 
@@ -151,8 +160,9 @@ function App() {
         </div>
         { gameState === 'setup' &&
           <div className="apikey-description center">
-            You need a valid OpenAI API key.
-            You can create and invalidate your keys <a target="_blank" href="https://platform.openai.com/account/api-keys">here</a>.
+            You need an <a target="_blank" rel="noreferrer" href="https://platform.openai.com/account/api-keys">
+            OpenAI API key <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            </a>
           </div>
         }
       </div>
