@@ -108,12 +108,12 @@ function App() {
         </h1>
       </div>
       <div className="middle-row">
-        <ul className="messages">
+        <ul className="messages center">
           {items}
         </ul>
       </div>
       <div className="dock-bottom">
-        <div className="input-container">
+        <div className="input-container center">
 
         { gameState === 'setup' &&
           <>
@@ -126,7 +126,7 @@ function App() {
                 placeholder="OpenAI API key"
                 autoFocus={true}
               />
-              <button onClick={() => setGameState("playing")}>Start</button>
+              <button disabled={!(apikey)} onClick={() => setGameState("playing")}>Start</button>
           </>
         }
 
@@ -149,9 +149,9 @@ function App() {
         { gameState === 'completed' && <> Completed! </> }
         </div>
         { gameState === 'setup' &&
-          <>
+          <div className="center">
             You can create and invalidate your keys in <a target="_blank" href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>
-          </>
+          </div>
         }
       </div>
     </div>

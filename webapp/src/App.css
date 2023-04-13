@@ -24,10 +24,13 @@ h1 {
   overflow-y: auto;
 }
 
-.messages {
-  padding:0;
+.center {
   max-width:800px;
   margin:auto;
+}
+
+.messages {
+  padding:0;
 }
 
 .messages li {
@@ -35,8 +38,6 @@ h1 {
   list-style-type: none;
 }
 .input-container {
-  max-width:800px;
-  margin:auto;
   display: flex;
   justify-content: space-between;
   padding-bottom:20px;
