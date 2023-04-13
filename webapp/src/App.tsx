@@ -14,15 +14,16 @@ interface Message {
   sender: 'user' | 'server';
 }
 
-type GameState = 'playing' | 'completed';
+type GameState = 'setup' | 'playing' | 'completed';
 
 
 function App() {
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState<string>('');
+  const [apikey, setAPIKey] = useState<string>('');
   const lastMessageRef = useRef<HTMLLIElement | null>(null);
-  const [gameState, setGameState] = useState<GameState>('playing');
+  const [gameState, setGameState] = useState<GameState>('setup');
 
   useEffect(() => {
     if (lastMessageRef.current) {
@@ -34,7 +35,7 @@ function App() {
   const sendMessage = async () => {
     if (input.trim() === '') return;
 
-    const request_data = { text: input };
+    const request_data = { text: input, apikey: apikey };
     setMessages(messages => [...messages, { ...request_data, sender: 'user' }]);
     setInput('');
 
@@ -59,9 +60,20 @@ function App() {
     }
   };
 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const saveAPIKey = () => {
+    // TODO: save in cookie?
+    setGameState("playing")
+  }
+
+  const handleKeyPressMessage = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       sendMessage();
+    }
+  };
+
+  const handleKeyPressAPIKey = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      saveAPIKey();
     }
   };
 
@@ -102,25 +114,45 @@ function App() {
       </div>
       <div className="dock-bottom">
         <div className="input-container">
-        { gameState === 'playing' ?
+
+        { gameState === 'setup' &&
+          <>
+              <input
+                style={{ width: '100%' }}
+                type="text"
+                value={apikey}
+                onChange={(e) => setAPIKey(e.target.value)}
+                onKeyPress={handleKeyPressAPIKey}
+                placeholder="OpenAI API key"
+                autoFocus={true}
+              />
+              <button onClick={() => setGameState("playing")}>Start</button>
+          </>
+        }
+
+        { gameState === 'playing' &&
             <>
               <input
                 style={{ width: '100%' }}
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyPress={handleKeyPress}
+                onKeyPress={handleKeyPressMessage}
                 placeholder="Ask a question or make a guess..."
                 autoFocus={true}
               />
               <button onClick={sendMessage}>Send</button>
+              <button onClick={() => setGameState("setup")}>⚙️</button>
             </>
-        :
+        }
+
+        { gameState === 'completed' && <> Completed! </> }
+        </div>
+        { gameState === 'setup' &&
           <>
-          Completed!
+            You can create and invalidate your keys in <a target="_blank" href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>
           </>
         }
-        </div>
       </div>
     </div>
   </>;

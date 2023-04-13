@@ -34,7 +34,6 @@ app.add_middleware(
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-api_key = os.getenv("DEFAULT_OPENAI_API_KEY")
 random_number_generator = random.Random()
 
 with open("things.yaml") as f:
@@ -74,7 +73,7 @@ def generate_prompt(*, answer: Dict[str, Any], guess: str) -> str:
 
 class Input(BaseModel):
 	text: str
-	openai_key: Optional[str]
+	apikey: Optional[str]
 
 def get_session_id(request: Request) -> str:
 	session_id = request.cookies.get("session_id")
@@ -88,7 +87,6 @@ async def process_data(request: Request, data: Input):
 	wanted_answer = get_todays_answer()
 	guess = data.text
 	prompt = generate_prompt(answer=wanted_answer, guess=guess)
-	print(prompt)
 
 	llm_response = openai.Completion.create(
 		model="text-davinci-003",
@@ -99,7 +97,7 @@ async def process_data(request: Request, data: Input):
 		frequency_penalty=0.0,
 		presence_penalty=0.0,
 		stop=["\n"],
-		api_key=api_key,
+		api_key=data.apikey,
 	)
 
 	response_text = "..."
