@@ -86,7 +86,7 @@ function App() {
     }
   };
 
-  const items = messages.map((message, index) => {
+  const conversation_items = messages.map((message, index) => {
     let classes = ["message", `message-from-${message.sender}`]
     if (message.sender === "server" && message.text !== "No.") {
       classes.push("interesting-message")
@@ -95,7 +95,7 @@ function App() {
     if (message.sender === "server" && is_found(message.text)) {
       classes.push("message-well-done")
     }
-    let sender = message.sender === 'user' ? 'player' : message.sender;
+    let sender = message.sender === 'user' ? 'you' : message.sender;
     return <li key={index} className={classes.join(" ")} ref={index === messages.length - 1 ? lastMessageRef : null}>
       <b>{sender}</b>: {message.text}
     </li>
@@ -119,7 +119,7 @@ function App() {
       </div>
       <div className="middle-row">
         <ul className="messages center">
-          {items}
+          {conversation_items}
         </ul>
       </div>
       <div className="dock-bottom">
