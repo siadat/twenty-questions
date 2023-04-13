@@ -52,7 +52,8 @@ function App() {
       let message_received = error;
 
       if (axios.isAxiosError(error)) {
-        message_received = error.message;
+        message_received = `${error.message}. Please ensure your OpenAI key is valid.`;
+        setGameState('setup')
       }
 
       setErrorMessage(`Something went wrong: ${message_received}`)
