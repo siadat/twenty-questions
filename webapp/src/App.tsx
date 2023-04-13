@@ -151,7 +151,7 @@ function App() {
         </div>
         { gameState === 'setup' &&
           <div className="apikey-description center">
-            You need to enter a valid OpenAI API key.
+            You need a valid OpenAI API key.
             You can create and invalidate your keys <a target="_blank" href="https://platform.openai.com/account/api-keys">here</a>.
           </div>
         }
